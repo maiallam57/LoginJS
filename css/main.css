@@ -1,0 +1,82 @@
+/* ====================================== */
+/* ==============> GENERAL <=============*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Righteous", sans-serif;
+    background-color: #000;
+}
+
+.card-header h1 {
+    position: relative;
+    font-size: 50px;
+    font-family: "Pacifico", cursive;
+    color: #352e28;
+    isolation: isolate;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: zoomOut 1s 1s forwards;
+    transition: opacity 0.1s 1s ease-in, transform 0.8s;
+}
+
+.card-header h1::before {
+    content: "";
+    position: absolute;
+    height: 25%;
+    left: 39%;
+    right: 39%;
+    bottom: 10px;
+    background-color: #fec260;
+    transition: height 350ms;
+    z-index: -1;
+}
+
+h1:hover::before {
+    height: 50%;
+}
+
+.card-body {
+    border-width: 2px 0 2px 0;
+    border-style: dotted;
+    border-color: #352e28;
+}
+
+.card-body h2 {
+    font-family: "Righteous", cursive;
+    font-size: 25px;
+    background-image: linear-gradient(to right, #3ca55c, #de4c12);
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    animation: zoomOut 1s 1s forwards;
+    transition: opacity 0.1s 2s ease-in, transform 0.8s;
+}
+
+.form-control{
+    box-shadow: 0 0 0 0.1rem #c3c2c2;
+}
+
+.form-control:focus {
+    border-color: #ced4da;
+    box-shadow: 0 0 0 0.1rem #fec260ff;
+}
+
+/* ====================================== */
+/* ===> ANIMATION <=== */
+@keyframes zoomOut {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
