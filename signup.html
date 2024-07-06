@@ -15,19 +15,26 @@
                 class="card mb-3 bg-main-color text-white p-5 w-75 m-auto rounded-0 box-shadow">
                 <h1>Smart Login System</h1>
                 <div class="card-body">
-                    <input class="form-control mb-3 text-white" type="email" oninput="validateUserInput(this)"
+                    <input class="form-control mb-3 text-white" type="text"
+                        oninput="validateUserInput(this)"
+                        id="name" placeholder="Enter your Name">
+                    <input class="form-control mb-3 text-white" type="email"
+                        oninput="validateUserInput(this)"
                         id="email" placeholder="Enter your Email">
-                    <input class="form-control mb-3 text-white" type="password" oninput="validateUserInput(this)"
+                    <input class="form-control mb-3 text-white" type="password"
+                        oninput="validateUserInput(this)"
                         id="password" placeholder="Enter your Password">
 
                     <p id="incorrect" class="d-none"></p>
 
-                    <button type="button" onclick="login()"
-                        class="btn btn-outline-info w-100 mb-3">Login</button>
+                    <button type="button" onclick="signup()"
+                        class="btn btn-outline-info w-100  mb-3">Sign
+                        Up</button>
 
-                    <p class="text-white">Don’t have an account? <a class="text-white" href="/">
-                        Sign Up <button type="submit" class="btn" onclick="signupPage()">
-                        </a></button>
+                    <p class="text-white">Don’t have an account? <a
+                            class="text-white" href="/">Login<button
+                                type="submit" class="btn"
+                                onclick="loginPage()"></button></a>
                     </p>
                 </div>
             </div>
