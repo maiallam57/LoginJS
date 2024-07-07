@@ -117,6 +117,7 @@ function warningClass(msg){
     incorrectMsg.innerText= msg
 }
 
+
 function checkUserEmailInDatabase(email){
     for (let index = 0; index < users.length; index++) {
         userEmail = users[index].email;
