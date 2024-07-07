@@ -16,25 +16,23 @@
                 <h1>Smart Login System</h1>
                 <div class="card-body">
                     <input class="form-control mb-3 text-white" type="text"
-                        oninput="validateUserInput(this)"
-                        id="name" placeholder="Enter your Name">
+                        required oninput="validateUserInput(this)"
+                        id="signupName" placeholder="Enter your Name">
                     <input class="form-control mb-3 text-white" type="email"
-                        oninput="validateUserInput(this)"
-                        id="email" placeholder="Enter your Email">
+                        required  oninput="validateUserInput(this)"
+                        id="signupEmail" placeholder="Enter your Email">
                     <input class="form-control mb-3 text-white" type="password"
-                        oninput="validateUserInput(this)"
-                        id="password" placeholder="Enter your Password">
+                        required  oninput="validateUserInput(this)"
+                        id="signupPassword" placeholder="Enter your Password">
 
-                    <p id="incorrect" class="d-none"></p>
+                    <p id="incorrect"></p>
 
                     <button type="button" onclick="signup()"
                         class="btn btn-outline-info w-100  mb-3">Sign
                         Up</button>
 
                     <p class="text-white">Don’t have an account? <a
-                            class="text-white" href="/">Login<button
-                                type="submit" class="btn"
-                                onclick="loginPage()"></button></a>
+                            class="text-white" href="index.html">Login</a>
                     </p>
                 </div>
             </div>
