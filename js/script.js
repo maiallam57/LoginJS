@@ -24,7 +24,7 @@ let regex = {
     },
     signupPassword: {
         value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-        invalidPasswordMsg: "Invalid Password! The password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
+        invalidPasswordMsg: "Invalid Password! The password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters!",
         wrongPasswordMsg: "Sorry, wrong Password!"
     }
 }
@@ -98,12 +98,16 @@ function successClass(msg){
     incorrectMsg.classList.remove("d-none");
     incorrectMsg.innerText= msg
 }
-function dangerClass(msg){
+function dangerClass(msg,appendFlag){
     incorrectMsg.classList.remove("text-success");
     incorrectMsg.classList.add("text-danger");
     incorrectMsg.classList.remove("text-warning");
     incorrectMsg.classList.remove("d-none");
-    incorrectMsg.innerText= msg
+    if(appendFlag){
+        incorrectMsg.innerText += '\n' + msg;
+    }else{
+        incorrectMsg.innerText= msg;
+    }
 }
 function warningClass(msg){
     incorrectMsg.classList.remove("text-success");
@@ -129,20 +133,19 @@ function checkUserPasswordInDb(user){
 }
 
 function signup(){
+    dangerClass('', false)
     let name = signupName.value;
     let email = signupEmail.value;
     let password = signupPassword.value;
 
     if(name == "" | !regex.signupName.value.test(name)){
-        dangerClass(regex.signupName.invalidMsg)
-        return
+        dangerClass(regex.signupName.invalidMsg, false)
     }
     if(email == "" | !regex.signupEmail.value.test(email)){
-        dangerClass(regex.signupEmail.invalidEmailMsg)
-        return
+        dangerClass(regex.signupEmail.invalidEmailMsg, true)
     }
     if(password == ""| !regex.signupPassword.value.test(password)){
-        dangerClass(regex.signupPassword.invalidPasswordMsg)
+        dangerClass(regex.signupPassword.invalidPasswordMsg,true)
         return
     }
 
@@ -164,19 +167,19 @@ function signup(){
             warningClass(regex.signupEmail.emailExistMsg)
         }
     }else{
-        dangerClass("Invalid Information")
+        dangerClass("Invalid Information",false)
     }
 }
 
 function login(){
+    dangerClass('', false)
     let email = loginEmail.value;
     let password = loginPassword.value;
     if(email == "" | !regex.signupEmail.value.test(email)){
-        dangerClass(regex.signupEmail.invalidEmailMsg)
-        return
+        dangerClass(regex.signupEmail.invalidEmailMsg, false)
     }
     if(password == ""){
-        dangerClass(regex.signupPassword.wrongPasswordMsg)
+        dangerClass(regex.signupPassword.wrongPasswordMsg, true)
         return
     }
 
@@ -190,7 +193,7 @@ function login(){
             sessionStorage.setItem('sessionUsername', userInfo.name)
         }
         else{
-            dangerClass(regex.signupPassword.wrongPasswordMsg)
+            dangerClass(regex.signupPassword.wrongPasswordMsg, false)
         }
     }
 }
