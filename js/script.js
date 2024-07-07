@@ -7,10 +7,6 @@ const signupPassword = document.getElementById("signupPassword");
 
 const incorrectMsg = document.getElementById("incorrect");
 
-const gotoSignUp = document.getElementById("goto-sign-up")
-const gotoLogin = document.getElementById("goto-login")
-
-
 var users = []
 var userInfo;
 var correctSignUp = false;
